@@ -61,3 +61,7 @@ SECTIONS
     1. .代表location counter。. = 0x10000，代表设置location counter为0x10000.
     2. .text定义一个输出段。*(.text)中的*为通配符，代表所有输入文件的text段。.text : {*(.text)}代表所有输入文件的text段都放在输出文件的text段中
 
+## arm
+1. 寄存器传参
+2. branch指令格式
+3. 寻址方式
