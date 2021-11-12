@@ -65,3 +65,6 @@ SECTIONS
 1. 寄存器传参
 2. branch指令格式
 3. 寻址方式
+
+## 问题记录
+1. Makefile中的替换，patsubst和后缀替换的区别
