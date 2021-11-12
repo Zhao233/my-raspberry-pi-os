@@ -31,7 +31,7 @@ clean:
 
 $(BUILD_DIR)/%_c.o: $(SRC_DIR)/%.c
 # mkdir -p 递归的创建目录（目标中的目录）
-	mkdir -r $(@D)
+	mkdir -p $(@D)
 
 # -MMD 生成文件关联信息，将忽略由 #include<file> 造成的依赖关系，并且输出到.d文件中
 # -c 只编译不链接
@@ -40,17 +40,19 @@ $(BUILD_DIR)/%_c.o: $(SRC_DIR)/%.c
 # $@ 目标文件集（xxx_c.o）
 	$(ARMGNU)-gcc $(COPS) -MMD -c $< -o $@
 
-$(BUILD_DIR)/%_S.o: $(SRC_DIR)/%.S
+$(BUILD_DIR)/%_s.o: $(SRC_DIR)/%.S
 	$(ARMGNU)-gcc $(ASMOPS) -MMD -c $< -o $@
 
 C_FILES = $(wildcard $(SRC_DIR)/*.c)
 ASM_FILES = $(wildcard $(SRC_DIR)/*.S)
 
 # c文件修改后缀，改为_c.o作为object
-OBJ_FILES = $(patsubst %.c,%_c.o,$(notdir $(C_FILES)))
+#OBJ_FILES = $(patsubst %.c,%_c.o,$(notdir $(C_FILES)))
+OBJ_FILES = $(C_FILES:$(SRC_DIR)/%.c=$(BUILD_DIR)/%_c.o)
 
-# 汇编文件修改后缀，改为_s.o作为object
-OBJ_FILES += $(patsubst %.c, %_s.o,$(notdir $(ASM_FILES)))
+# 汇编文件修改后缀，改为_s.o作为objectls
+#OBJ_FILES += $(patsubst %.c, %_s.o,$(notdir $(ASM_FILES)))
+OBJ_FILES += $(ASM_FILES:$(SRC_DIR)/%.S=$(BUILD_DIR)/%_s.o)
 
 # 修改obj文件的后缀，修改为.d作为依赖文件
 DEP_FILES = $(OBJ_FILES:%.o=%.d)

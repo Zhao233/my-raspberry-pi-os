@@ -9,9 +9,8 @@ _start:
     cbz x0, master
     b proc_hang
 
-
 proc_hang:
-    b prog_hang
+    b proc_hang
 
 master:
     // 清楚bss段内容
