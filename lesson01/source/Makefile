@@ -74,3 +74,11 @@ kernel8.img: $(SRC_DIR)/linker.ld $(OBJ_FILES)
 
 qemu:
 	$(QEMU) $(QEMUOPTS)
+
+
+qemu-gdb:
+	$(QEMU) $(QEMUOPTS) -S
+
+
+gdb:
+	gdb-multiarch -n -x .gdbinit
