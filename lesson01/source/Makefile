@@ -1,6 +1,7 @@
 # 执行的taget的顺序
 # all -> $(BUILD_DIR)/%_c.o -> $(BUILD_DIR)/%_S.o -> kernel8.img
 
+
 # 交叉编译工具
 ARMGNU ?= aarch64-linux-gnu
 
@@ -21,6 +22,13 @@ BUILD_DIR = build
 
 # 源代码目录
 SRC_DIR = src
+
+# qemu 运行选项
+QEMU = qemu-system-aarch64
+IMAGE = kernel8.img
+QEMUOPTS = -m 128 -M raspi3 -cpu cortex-a53 -kernel $(IMAGE)  -nographic \
+ -serial null -chardev stdio,id=uart1 -serial chardev:uart1 -monitor none
+
 
 # 默认的target，prerequisites为kernel8.img，先去寻找依赖的target
 all:kernel8.img
@@ -63,3 +71,6 @@ DEP_FILES = $(OBJ_FILES:%.o=%.d)
 kernel8.img: $(SRC_DIR)/linker.ld $(OBJ_FILES)
 	$(ARMGNU)-ld -T $< -o $(BUILD_DIR)/kernel8.elf $(OBJ_FILES)
 	$(ARMGNU)-objcopy $(BUILD_DIR)/kernel8.elf -O binary kernel8.img
+
+qemu:
+	$(QEMU) $(QEMUOPTS)
