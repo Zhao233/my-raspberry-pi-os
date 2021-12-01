@@ -12,10 +12,10 @@ ARMGNU ?= aarch64-linux-gnu
 # ffreestanding : 独立环境，不包含标准库文件，起始位置不一定从main开始。此标志告诉编译器，一些符号不要链接到标准库
 # Iinclude : 在include这个文件中搜索头文件
 # mgeneral-regs-only : 只使用常规的寄存器，不使用SIMD寄存器
-COPS = -Wall -nostdlib -nostartfiles -ffreestanding -Iinclude -mgeneral-regs-only
+COPS = -Wall -nostdlib -nostartfiles -ffreestanding -Iinclude -mgeneral-regs-only -g
 
 # 编译选项（assembly options）
-ASMOPS = -Iinclude
+ASMOPS = -Iinclude -g
 
 # build路径
 BUILD_DIR = build
@@ -25,9 +25,11 @@ SRC_DIR = src
 
 # qemu 运行选项
 QEMU = qemu-system-aarch64
+
 IMAGE = kernel8.img
+
 QEMUOPTS = -m 128 -M raspi3 -cpu cortex-a53 -kernel $(IMAGE)  -nographic \
- -serial null -chardev stdio,id=uart1 -serial chardev:uart1 -monitor none
+ -serial null -chardev stdio,id=uart1 -serial chardev:uart1 -monitor none 
 
 
 # 默认的target，prerequisites为kernel8.img，先去寻找依赖的target
@@ -77,7 +79,7 @@ qemu:
 
 
 qemu-gdb:
-	$(QEMU) $(QEMUOPTS) -S
+	$(QEMU) $(QEMUOPTS) -S -gdb tcp:1234
 
 
 gdb:
