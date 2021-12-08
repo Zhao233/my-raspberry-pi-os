@@ -1,6 +1,7 @@
 # 任务目标
 ## 1. 增加printf函数
 ## 2. 根据boot protocal配置相关寄存器
+## 3. 进入el1 kernel
 ### 进入内核态前的准备工作
 1. 关闭地址翻译和cache
     + MMU = off
