@@ -24,10 +24,10 @@ master:
 
     // 配置EL3
     ldr	x0, =SPSR_VALUE
-	msr	SPSR_EL3, x0
+	msr	SPSR_EL2, x0
 
     adr x0, el1_entry
-    msr ELR_EL3, x0
+    msr ELR_EL2, x0
 
     eret
 
