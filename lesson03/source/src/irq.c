@@ -24,3 +24,9 @@ void show_invalid_entry_message(int type, unsigned long esr, unsigned long addre
 {
     printf("%s, ESR: %x, address", entry_error_message[type], esr, address);
 }
+
+
+void enable_interrupt_controller()
+{
+    put32(ENABLE_IRQS_1, SYSTEM_TIMER_IRQ_1);
+}
