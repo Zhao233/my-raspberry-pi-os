@@ -34,6 +34,7 @@ void show_invalid_entry_message(int type, unsigned long esr, unsigned long addre
 
 void enable_interrupt_controller()
 {
+    // enable timer interrupt by set ENABLE_IRQS register
     put32(ENABLE_IRQS_1, SYSTEM_TIMER_IRQ_1);
 }
 
