@@ -24,7 +24,7 @@ const char *entry_error_message[] = {
     "IRQ_INVALID_EL0_32",
     "FIQ_INVALID_EL0_32",
     "ERROR_INVALID_EL0_32"
-}
+};
 
 void show_invalid_entry_message(int type, unsigned long esr, unsigned long address)
 {
