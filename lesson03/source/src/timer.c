@@ -8,7 +8,7 @@ unsigned int curVal = 0;
 // 
 void timer_init(void)
 {
-    curVal = get32(TIMER_CL0);
+    curVal = get32(TIMER_CLO);
     curVal += interval;
     put32(TIMER_C1, curVal);
 }
