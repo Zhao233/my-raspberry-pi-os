@@ -1,16 +1,74 @@
 # 任务目标
 ## 1. 添加异常向量表
-### 数据结构
-1. ventry
-``` c
-.macro    ventry    label
-// 按7字节对齐
-.align    7
-b    \label
-.endm
-```
+### 整体
+1. 初始化异常向量表
+2. 配置中断控制器
+3. 根据定义的异常向量表，跳转到对应的异常处理向量
+4. 再进入异常处理前保存栈信息，寄存器信息
+5. 读取异常信息：异常类型，异常描述信息（esr_el1），异常发生地址（elr_el1）
+6. 进入异常处理函数
+7. 退出异常处理，恢复栈信息，恢复寄存器信息
 
-### 
+### 数据结构
+1. vectors  
+异常向量表。异常向量表包含16个表项，每个表项128byte对齐。在整个异常处理过程中，我们只出现从EL1h发生的IRQ的异常处理。在本实验中带有invalid的异常处理函数（exception handler）在实验流程中不会被触发
+    ```c
+    vectors:
+        ventry	sync_invalid_el1t			// Synchronous EL1t
+        ventry	irq_invalid_el1t			// IRQ EL1t
+        ventry	fiq_invalid_el1t			// FIQ EL1t
+        ventry	error_invalid_el1t			// Error EL1t
+
+        ventry	sync_invalid_el1h			// Synchronous EL1h
+        // will triggered in actual program execution flow
+        ventry	el1_irq					    // IRQ EL1h
+        ventry	fiq_invalid_el1h			// FIQ EL1h
+        ventry	error_invalid_el1h			// Error EL1h
+
+        ventry	sync_invalid_el0_64			// Synchronous 64-bit EL0
+        ventry	irq_invalid_el0_64			// IRQ 64-bit EL0
+        ventry	fiq_invalid_el0_64			// FIQ 64-bit EL0
+        ventry	error_invalid_el0_64		// Error 64-bit EL0
+
+        ventry	sync_invalid_el0_32			// Synchronous 32-bit EL0
+        ventry	irq_invalid_el0_32			// IRQ 32-bit EL0
+        ventry	fiq_invalid_el0_32			// FIQ 32-bit EL0
+        ventry	error_invalid_el0_32		// Error 32-bit EL0
+    ```
+
+2. ventry
+异常向量宏。ventry为异常向量表中的表项。每个表项最多包含32条指令，来进行异常处理
+    ``` c
+    .macro    ventry    label
+    // 按2^7 bit对齐（128byte）
+    .align    7
+    b    \label
+    .endm
+    ```
+3. sync_invalid_el1t等  
+异常处理函数。
+    + 进入异常处理函数流程  
+    进入异常处理函数后，保存栈帧，保存寄存器信息，执行异常处理函数，退出异常处理（恢复栈帧，恢复寄存器信息）
+    + 当进入到invlid的异常函数处理时，完成kernel_enter的工作后，进入死循环。
+
+4. handle_invalid_entry     
+无效（实际程序流不会触发）的异常向量
+    ``` c
+    .macro handle_invalid_entry type
+    kernel_entry
+    mov    x0, #\type
+    mrs    x1, esr_el1
+    mrs    x2, elr_el1
+    bl    show_invalid_entry_message
+    b    err_hang
+    .endm
+    ```
+5. kernel_entry     
+当触发异常进入内核态的处理函数
+    ``` c
+    ```
+6. kernel_exit
+退出内核态时的处理函数
 # arm64 异常
 ## 异常类型
 1. 同步异常     
@@ -51,6 +109,11 @@ b    \label
     + IL
     + ISS
 
+2. PSTATE
+    + 关闭/开启中断
+3. DAIFCLR
+4. DAIFET
+# ARM64 异常处理流程
 # 笔记
 ## 汇编中macro的用法
 ``` c
@@ -67,4 +130,3 @@ b    \label
 b    \label
 .endm
 ```
-## 
