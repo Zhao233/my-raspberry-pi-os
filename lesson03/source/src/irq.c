@@ -34,17 +34,17 @@ void show_invalid_entry_message(int type, unsigned long esr, unsigned long addre
 
 void enable_interrupt_controller()
 {
-    // enable timer interrupt by set ENABLE_IRQS register
-    put32(ENABLE_IRQS_1, SYSTEM_TIMER_IRQ_1);
+    put32(TIMER_INT_CTRL_0, TIMER_INT_CTRL_0_VALUE);
+
 }
 
 // the entry of the irq
 void handle_irq(void)
 {
-    unsigned int irq = get32(IRQ_PENDING_1);
-
+    unsigned int irq = get32(INT_SOURCE_0);
+    printf("enter the handle_irq_function, irq: %d \n\r", irq);
     switch(irq){
-        case (SYSTEM_TIMER_IRQ_1):
+        case (GENERIC_TIMER_INTERRUPT):
             handle_timer_irq();
             break;
 

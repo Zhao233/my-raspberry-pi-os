@@ -4,4 +4,4 @@
  */ 
 
 //#define SYSTEM_TIMER
-#define LOCAL_TIMER
+#define GENERIC_TIMER

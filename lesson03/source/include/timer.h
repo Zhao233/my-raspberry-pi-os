@@ -2,7 +2,9 @@
 
 #define _TIMER_H
 
-void timer_init( void );
+#define GENERIC_TIMER
+
+void generic_timer_init( void );
 void handle_timer_irq( void );
 
 #endif

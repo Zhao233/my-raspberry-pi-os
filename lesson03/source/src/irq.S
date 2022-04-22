@@ -1,16 +1,15 @@
-// 初始化异常向量表
-.global irq_vector_init
+.globl irq_vector_init
 irq_vector_init:
-    adr x0, vectors
-    msr vbar_el1, x0
-    ret
+	adr	x0, vectors		// load VBAR_EL1 with virtual
+	msr	vbar_el1, x0		// vector table address
+	ret
 
-.global enable_irq
+.globl enable_irq
 enable_irq:
-    msr daifclr, #2
-    ret
+	msr    daifclr, #2 
+	ret
 
-.global diable_irq
-diable_irq:
-    msr daifset, #2
-    ret
+.globl disable_irq
+disable_irq:
+	msr	daifset, #2
+	ret
