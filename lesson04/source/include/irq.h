@@ -1,5 +1,5 @@
-#ifndef _IRQ_H
-#define _IRQ_H
+#ifndef	_IRQ_H
+#define	_IRQ_H
 
 void enable_interrupt_controller( void );
 
