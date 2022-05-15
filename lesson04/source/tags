@@ -1,0 +1,204 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARMGNU	Makefile	/^ARMGNU ?= aarch64-linux-gnu$/;"	m
+ASMOPS	Makefile	/^ASMOPS = -Iinclude -g$/;"	m
+ASM_FILES	Makefile	/^ASM_FILES = $(wildcard $(SRC_DIR)\/*.S)$/;"	m
+AUX_ENABLES	include/peripherals/mini_uart.h	6;"	d
+AUX_MU_BAUD_REG	include/peripherals/mini_uart.h	17;"	d
+AUX_MU_CNTL_REG	include/peripherals/mini_uart.h	15;"	d
+AUX_MU_IER_REG	include/peripherals/mini_uart.h	8;"	d
+AUX_MU_IIR_REG	include/peripherals/mini_uart.h	9;"	d
+AUX_MU_IO_REG	include/peripherals/mini_uart.h	7;"	d
+AUX_MU_LCR_REG	include/peripherals/mini_uart.h	10;"	d
+AUX_MU_LSR_REG	include/peripherals/mini_uart.h	12;"	d
+AUX_MU_MCR_REG	include/peripherals/mini_uart.h	11;"	d
+AUX_MU_MSR_REG	include/peripherals/mini_uart.h	13;"	d
+AUX_MU_SCRATCH	include/peripherals/mini_uart.h	14;"	d
+AUX_MU_STAT_REG	include/peripherals/mini_uart.h	16;"	d
+BUILD_DIR	Makefile	/^BUILD_DIR = build$/;"	m
+COPS	Makefile	/^COPS = -Wall -nostdlib -nostartfiles -ffreestanding -Iinclude -mgeneral-regs-only -g$/;"	m
+C_FILES	Makefile	/^C_FILES = $(wildcard $(SRC_DIR)\/*.c)$/;"	m
+DEP_FILES	Makefile	/^DEP_FILES = $(OBJ_FILES:%.o=%.d)$/;"	m
+DISABLE_BASIC_IRQS	include/peripherals/irq.h	14;"	d
+DISABLE_IRQS_1	include/peripherals/irq.h	12;"	d
+DISABLE_IRQS_2	include/peripherals/irq.h	13;"	d
+ENABLE_BASIC_IRQS	include/peripherals/irq.h	11;"	d
+ENABLE_IRQS_1	include/peripherals/irq.h	9;"	d
+ENABLE_IRQS_2	include/peripherals/irq.h	10;"	d
+ENABLE_TIMER	include/peripherals/timer.h	28;"	d
+ERROR_INVALID_EL0_32	include/entry.h	24;"	d
+ERROR_INVALID_EL0_64	include/entry.h	19;"	d
+ERROR_INVALID_EL1h	include/entry.h	14;"	d
+ERROR_INVALID_EL1t	include/entry.h	9;"	d
+FIQ_CONTROL	include/peripherals/irq.h	8;"	d
+FIQ_INVALID_EL0_32	include/entry.h	23;"	d
+FIQ_INVALID_EL0_64	include/entry.h	18;"	d
+FIQ_INVALID_EL1h	include/entry.h	13;"	d
+FIQ_INVALID_EL1t	include/entry.h	8;"	d
+GENERIC_TIMER	include/config.h	7;"	d
+GENERIC_TIMER	include/timer.h	5;"	d
+GENERIC_TIMER_INTERRUPT	include/peripherals/irq.h	25;"	d
+GPCLR0	include/peripherals/gpio.h	8;"	d
+GPFSEL1	include/peripherals/gpio.h	6;"	d
+GPPUD	include/peripherals/gpio.h	9;"	d
+GPPUDCLK0	include/peripherals/gpio.h	10;"	d
+GPSET0	include/peripherals/gpio.h	7;"	d
+HCR_RW	include/arm/sysregs.h	23;"	d
+HCR_VALUE	include/arm/sysregs.h	24;"	d
+IMAGE	Makefile	/^IMAGE = kernel8.img$/;"	m
+IMASK_TIMER	include/peripherals/timer.h	29;"	d
+INTERVAL_TIMER	include/peripherals/timer.h	7;"	d
+INT_SOURCE_0	include/peripherals/irq.h	22;"	d
+IRQ_BASIC_PENDING	include/peripherals/irq.h	5;"	d
+IRQ_INVALID_EL0_32	include/entry.h	22;"	d
+IRQ_INVALID_EL0_64	include/entry.h	17;"	d
+IRQ_INVALID_EL1h	include/entry.h	12;"	d
+IRQ_INVALID_EL1t	include/entry.h	7;"	d
+IRQ_PENDING_1	include/peripherals/irq.h	6;"	d
+IRQ_PENDING_2	include/peripherals/irq.h	7;"	d
+ISTATUS_TIMER	include/peripherals/timer.h	30;"	d
+LOW_MEMORY	include/mm.h	17;"	d
+LPBASE	include/peripherals/base.h	6;"	d
+OBJ_FILES	Makefile	/^OBJ_FILES = $(C_FILES:$(SRC_DIR)\/%.c=$(BUILD_DIR)\/%_c.o)$/;"	m
+PAGE_SHIFT	include/mm.h	8;"	d
+PAGE_SIZE	include/mm.h	13;"	d
+PBASE	include/peripherals/base.h	5;"	d
+P_TIMER_BASE	include/peripherals/timer.h	10;"	d
+QEMU	Makefile	/^QEMU = qemu-system-aarch64$/;"	m
+QEMUOPTS	Makefile	/^QEMUOPTS = -m 128 -M raspi3 -cpu cortex-a53 -kernel $(IMAGE)  -nographic \\$/;"	m
+SCR_NS	include/arm/sysregs.h	32;"	d
+SCR_RESERVED	include/arm/sysregs.h	30;"	d
+SCR_RW	include/arm/sysregs.h	31;"	d
+SCR_VALUE	include/arm/sysregs.h	33;"	d
+SCTLR_D_CACHE_DISABLED	include/arm/sysregs.h	13;"	d
+SCTLR_EE_LITTLE_ENDIAN	include/arm/sysregs.h	10;"	d
+SCTLR_EOE_LITTLE_ENDIAN	include/arm/sysregs.h	11;"	d
+SCTLR_I_CACHE_DISABLED	include/arm/sysregs.h	12;"	d
+SCTLR_MMU_DISABLED	include/arm/sysregs.h	14;"	d
+SCTLR_MMU_ENABLED	include/arm/sysregs.h	15;"	d
+SCTLR_RESERVED	include/arm/sysregs.h	9;"	d
+SCTLR_VALUE_BEFORE_KERNEL	include/arm/sysregs.h	17;"	d
+SECTION_SHIFT	include/mm.h	10;"	d
+SECTION_SIZE	include/mm.h	15;"	d
+SPSR_EL1h	include/arm/sysregs.h	40;"	d
+SPSR_MASK_ALL	include/arm/sysregs.h	39;"	d
+SPSR_VALUE	include/arm/sysregs.h	41;"	d
+SRC_DIR	Makefile	/^SRC_DIR = src$/;"	m
+STACK_FRAME_SIZE	include/entry.h	4;"	d
+SYNC_INVALID_EL0_32	include/entry.h	21;"	d
+SYNC_INVALID_EL0_64	include/entry.h	16;"	d
+SYNC_INVALID_EL1h	include/entry.h	11;"	d
+SYNC_INVALID_EL1t	include/entry.h	6;"	d
+SYSTEM_TIMER_IRQ_0	include/peripherals/irq.h	16;"	d
+SYSTEM_TIMER_IRQ_1	include/peripherals/irq.h	17;"	d
+SYSTEM_TIMER_IRQ_2	include/peripherals/irq.h	18;"	d
+SYSTEM_TIMER_IRQ_3	include/peripherals/irq.h	19;"	d
+TABLE_SHIFT	include/mm.h	9;"	d
+TIMER_C0	include/peripherals/timer.h	15;"	d
+TIMER_C1	include/peripherals/timer.h	16;"	d
+TIMER_C2	include/peripherals/timer.h	17;"	d
+TIMER_C3	include/peripherals/timer.h	18;"	d
+TIMER_CHI	include/peripherals/timer.h	14;"	d
+TIMER_CLO	include/peripherals/timer.h	13;"	d
+TIMER_CS	include/peripherals/timer.h	12;"	d
+TIMER_CS_M0	include/peripherals/timer.h	21;"	d
+TIMER_CS_M1	include/peripherals/timer.h	22;"	d
+TIMER_CS_M2	include/peripherals/timer.h	23;"	d
+TIMER_CS_M3	include/peripherals/timer.h	24;"	d
+TIMER_INT_CTRL_0	include/peripherals/irq.h	21;"	d
+TIMER_INT_CTRL_0_VALUE	include/peripherals/irq.h	24;"	d
+_BOOT_H	include/utils.h	2;"	d
+_ENTRY_H	include/entry.h	2;"	d
+_IRQ_H	include/irq.h	2;"	d
+_MINI_UART_H	include/mini_uart.h	2;"	d
+_MM_H	include/mm.h	2;"	d
+_P_BASE_H	include/peripherals/base.h	2;"	d
+_P_GPIO_H	include/peripherals/gpio.h	2;"	d
+_P_MINI_UART_H	include/peripherals/mini_uart.h	2;"	d
+_P_TIMER_H	include/peripherals/timer.h	3;"	d
+_SYSREGS_H	include/arm/sysregs.h	3;"	d
+_TIMER_H	include/timer.h	3;"	d
+__TFP_PRINTF__	include/printf.h	92;"	d
+_start	src/boot.S	/^_start:$/;"	l
+a2d	src/printf.c	/^static int a2d(char ch)$/;"	f	file:
+a2i	src/printf.c	/^static char a2i(char ch, char** src,int base,int* nump)$/;"	f	file:
+b	src/entry.S	/^b \\label$/;"	l
+delay	src/utils.S	/^delay:$/;"	l
+disable_irq	src/irq.S	/^disable_irq:$/;"	l
+el1_entry	src/boot.S	/^el1_entry:$/;"	l
+el1_irq	src/entry.S	/^el1_irq:$/;"	l
+enable_interrupt_controller	src/irq.c	/^void enable_interrupt_controller()$/;"	f
+enable_irq	src/irq.S	/^enable_irq:$/;"	l
+entry_error_message	src/irq.c	/^const char *entry_error_message[] = {$/;"	v
+err_hang	src/entry.S	/^err_hang:$/;"	l
+error_invalid_el0_32	src/entry.S	/^error_invalid_el0_32:$/;"	l
+error_invalid_el0_64	src/entry.S	/^error_invalid_el0_64:$/;"	l
+error_invalid_el1h	src/entry.S	/^error_invalid_el1h:$/;"	l
+error_invalid_el1t	src/entry.S	/^error_invalid_el1t:$/;"	l
+fiq_invalid_el0_32	src/entry.S	/^fiq_invalid_el0_32:$/;"	l
+fiq_invalid_el0_64	src/entry.S	/^fiq_invalid_el0_64:$/;"	l
+fiq_invalid_el1h	src/entry.S	/^fiq_invalid_el1h:$/;"	l
+fiq_invalid_el1t	src/entry.S	/^fiq_invalid_el1t:$/;"	l
+gen_timer_init	src/timer.S	/^gen_timer_init:                $/;"	l
+gen_timer_reset	src/timer.S	/^gen_timer_reset:               $/;"	l
+generic_timer_init	src/timer.c	/^void generic_timer_init(){$/;"	f
+get32	src/utils.S	/^get32:$/;"	l
+get_el	src/utils.S	/^get_el:$/;"	l
+handle_irq	src/irq.c	/^void handle_irq(void)$/;"	f
+handle_timer_irq	src/timer.c	/^void handle_timer_irq( void )$/;"	f
+i2a	src/printf.c	/^static void i2a (int num, char * bf)$/;"	f	file:
+init_printf	src/printf.c	/^void init_printf(void* putp,void (*putf) (void*,char))$/;"	f
+irq_invalid_el0_32	src/entry.S	/^irq_invalid_el0_32:$/;"	l
+irq_invalid_el0_64	src/entry.S	/^irq_invalid_el0_64:$/;"	l
+irq_invalid_el1t	src/entry.S	/^irq_invalid_el1t:$/;"	l
+irq_vector_init	src/irq.S	/^irq_vector_init:$/;"	l
+kernel_main	src/kernel.c	/^void kernel_main(void) {$/;"	f
+li2a	src/printf.c	/^static void li2a (long num, char * bf)$/;"	f	file:
+master	src/boot.S	/^master:$/;"	l
+memzero	src/mm.S	/^memzero:$/;"	l
+printf	include/printf.h	103;"	d
+proc_hang	src/boot.S	/^proc_hang:$/;"	l
+put32	src/utils.S	/^put32:$/;"	l
+putc	src/mini_uart.c	/^void putc(void *p, char c){$/;"	f
+putcf	src/printf.c	/^typedef void (*putcf) (void*,char);$/;"	t	file:
+putchw	src/printf.c	/^static void putchw(void* putp,putcf putf,int n, char z, char* bf)$/;"	f	file:
+putcp	src/printf.c	/^static void putcp(void* p,char c)$/;"	f	file:
+show_invalid_entry_message	src/irq.c	/^void show_invalid_entry_message(int type, unsigned long esr, unsigned long address)$/;"	f
+sprintf	include/printf.h	104;"	d
+stdout_putf	src/printf.c	/^static putcf stdout_putf;$/;"	v	file:
+stdout_putp	src/printf.c	/^static void* stdout_putp;$/;"	v	file:
+stp	src/entry.S	/^stp x0,  x1,  [sp, #16 * 0]$/;"	l
+stp	src/entry.S	/^stp x10, x11, [sp, #16 * 5]$/;"	l
+stp	src/entry.S	/^stp x12, x13, [sp, #16 * 6]$/;"	l
+stp	src/entry.S	/^stp x14, x15, [sp, #16 * 7]$/;"	l
+stp	src/entry.S	/^stp x16, x17, [sp, #16 * 8]$/;"	l
+stp	src/entry.S	/^stp x18, x19, [sp, #16 * 9]$/;"	l
+stp	src/entry.S	/^stp x2,  x3,  [sp, #16 * 1]$/;"	l
+stp	src/entry.S	/^stp x20, x21, [sp, #16 * 10]$/;"	l
+stp	src/entry.S	/^stp x22, x23, [sp, #16 * 11]$/;"	l
+stp	src/entry.S	/^stp x24, x25, [sp, #16 * 12]$/;"	l
+stp	src/entry.S	/^stp x26, x27, [sp, #16 * 13]$/;"	l
+stp	src/entry.S	/^stp x28, x29, [sp, #16 * 14]$/;"	l
+stp	src/entry.S	/^stp x4,  x5,  [sp, #16 * 2]$/;"	l
+stp	src/entry.S	/^stp x6,  x7,  [sp, #16 * 3]$/;"	l
+stp	src/entry.S	/^stp x8,  x9,  [sp, #16 * 4]$/;"	l
+str	src/entry.S	/^str x30,      [sp, #16 * 15]$/;"	l
+sub	src/entry.S	/^sub sp, sp, #STACK_FRAME_SIZE$/;"	l
+sync_invalid_el0_32	src/entry.S	/^sync_invalid_el0_32:$/;"	l
+sync_invalid_el0_64	src/entry.S	/^sync_invalid_el0_64:$/;"	l
+sync_invalid_el1h	src/entry.S	/^sync_invalid_el1h:$/;"	l
+sync_invalid_el1t	src/entry.S	/^sync_invalid_el1t:$/;"	l
+tfp_format	src/printf.c	/^void tfp_format(void* putp,putcf putf,char *fmt, va_list va)$/;"	f
+tfp_printf	src/printf.c	/^void tfp_printf(char *fmt, ...)$/;"	f
+tfp_sprintf	src/printf.c	/^void tfp_sprintf(char* s,char *fmt, ...)$/;"	f
+uart_init	src/mini_uart.c	/^void uart_init ( void )$/;"	f
+uart_recv	src/mini_uart.c	/^char uart_recv ( void )$/;"	f
+uart_send	src/mini_uart.c	/^void uart_send ( char c )$/;"	f
+uart_send_string	src/mini_uart.c	/^void uart_send_string(char* str)$/;"	f
+ui2a	src/printf.c	/^static void ui2a(unsigned int num, unsigned int base, int uc,char * bf)$/;"	f	file:
+uli2a	src/printf.c	/^static void uli2a(unsigned long int num, unsigned int base, int uc,char * bf)$/;"	f	file:
+vectors	src/entry.S	/^vectors:$/;"	l

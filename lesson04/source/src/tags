@@ -1,0 +1,83 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+_start	boot.S	/^_start:$/;"	l
+a2d	printf.c	/^static int a2d(char ch)$/;"	f	file:
+a2i	printf.c	/^static char a2i(char ch, char** src,int base,int* nump)$/;"	f	file:
+b	entry.S	/^b \\label$/;"	l
+delay	utils.S	/^delay:$/;"	l
+disable_irq	irq.S	/^disable_irq:$/;"	l
+el1_entry	boot.S	/^el1_entry:$/;"	l
+el1_irq	entry.S	/^el1_irq:$/;"	l
+enable_interrupt_controller	irq.c	/^void enable_interrupt_controller()$/;"	f
+enable_irq	irq.S	/^enable_irq:$/;"	l
+entry_error_message	irq.c	/^const char *entry_error_message[] = {$/;"	v
+err_hang	entry.S	/^err_hang:$/;"	l
+error_invalid_el0_32	entry.S	/^error_invalid_el0_32:$/;"	l
+error_invalid_el0_64	entry.S	/^error_invalid_el0_64:$/;"	l
+error_invalid_el1h	entry.S	/^error_invalid_el1h:$/;"	l
+error_invalid_el1t	entry.S	/^error_invalid_el1t:$/;"	l
+fiq_invalid_el0_32	entry.S	/^fiq_invalid_el0_32:$/;"	l
+fiq_invalid_el0_64	entry.S	/^fiq_invalid_el0_64:$/;"	l
+fiq_invalid_el1h	entry.S	/^fiq_invalid_el1h:$/;"	l
+fiq_invalid_el1t	entry.S	/^fiq_invalid_el1t:$/;"	l
+gen_timer_init	timer.S	/^gen_timer_init:                $/;"	l
+gen_timer_reset	timer.S	/^gen_timer_reset:               $/;"	l
+generic_timer_init	timer.c	/^void generic_timer_init(){$/;"	f
+get32	utils.S	/^get32:$/;"	l
+get_el	utils.S	/^get_el:$/;"	l
+handle_irq	irq.c	/^void handle_irq(void)$/;"	f
+handle_timer_irq	timer.c	/^void handle_timer_irq( void )$/;"	f
+i2a	printf.c	/^static void i2a (int num, char * bf)$/;"	f	file:
+init_printf	printf.c	/^void init_printf(void* putp,void (*putf) (void*,char))$/;"	f
+irq_invalid_el0_32	entry.S	/^irq_invalid_el0_32:$/;"	l
+irq_invalid_el0_64	entry.S	/^irq_invalid_el0_64:$/;"	l
+irq_invalid_el1t	entry.S	/^irq_invalid_el1t:$/;"	l
+irq_vector_init	irq.S	/^irq_vector_init:$/;"	l
+kernel_main	kernel.c	/^void kernel_main(void) {$/;"	f
+li2a	printf.c	/^static void li2a (long num, char * bf)$/;"	f	file:
+master	boot.S	/^master:$/;"	l
+memzero	mm.S	/^memzero:$/;"	l
+proc_hang	boot.S	/^proc_hang:$/;"	l
+put32	utils.S	/^put32:$/;"	l
+putc	mini_uart.c	/^void putc(void *p, char c){$/;"	f
+putcf	printf.c	/^typedef void (*putcf) (void*,char);$/;"	t	file:
+putchw	printf.c	/^static void putchw(void* putp,putcf putf,int n, char z, char* bf)$/;"	f	file:
+putcp	printf.c	/^static void putcp(void* p,char c)$/;"	f	file:
+show_invalid_entry_message	irq.c	/^void show_invalid_entry_message(int type, unsigned long esr, unsigned long address)$/;"	f
+stdout_putf	printf.c	/^static putcf stdout_putf;$/;"	v	file:
+stdout_putp	printf.c	/^static void* stdout_putp;$/;"	v	file:
+stp	entry.S	/^stp x0,  x1,  [sp, #16 * 0]$/;"	l
+stp	entry.S	/^stp x10, x11, [sp, #16 * 5]$/;"	l
+stp	entry.S	/^stp x12, x13, [sp, #16 * 6]$/;"	l
+stp	entry.S	/^stp x14, x15, [sp, #16 * 7]$/;"	l
+stp	entry.S	/^stp x16, x17, [sp, #16 * 8]$/;"	l
+stp	entry.S	/^stp x18, x19, [sp, #16 * 9]$/;"	l
+stp	entry.S	/^stp x2,  x3,  [sp, #16 * 1]$/;"	l
+stp	entry.S	/^stp x20, x21, [sp, #16 * 10]$/;"	l
+stp	entry.S	/^stp x22, x23, [sp, #16 * 11]$/;"	l
+stp	entry.S	/^stp x24, x25, [sp, #16 * 12]$/;"	l
+stp	entry.S	/^stp x26, x27, [sp, #16 * 13]$/;"	l
+stp	entry.S	/^stp x28, x29, [sp, #16 * 14]$/;"	l
+stp	entry.S	/^stp x4,  x5,  [sp, #16 * 2]$/;"	l
+stp	entry.S	/^stp x6,  x7,  [sp, #16 * 3]$/;"	l
+stp	entry.S	/^stp x8,  x9,  [sp, #16 * 4]$/;"	l
+str	entry.S	/^str x30,      [sp, #16 * 15]$/;"	l
+sub	entry.S	/^sub sp, sp, #STACK_FRAME_SIZE$/;"	l
+sync_invalid_el0_32	entry.S	/^sync_invalid_el0_32:$/;"	l
+sync_invalid_el0_64	entry.S	/^sync_invalid_el0_64:$/;"	l
+sync_invalid_el1h	entry.S	/^sync_invalid_el1h:$/;"	l
+sync_invalid_el1t	entry.S	/^sync_invalid_el1t:$/;"	l
+tfp_format	printf.c	/^void tfp_format(void* putp,putcf putf,char *fmt, va_list va)$/;"	f
+tfp_printf	printf.c	/^void tfp_printf(char *fmt, ...)$/;"	f
+tfp_sprintf	printf.c	/^void tfp_sprintf(char* s,char *fmt, ...)$/;"	f
+uart_init	mini_uart.c	/^void uart_init ( void )$/;"	f
+uart_recv	mini_uart.c	/^char uart_recv ( void )$/;"	f
+uart_send	mini_uart.c	/^void uart_send ( char c )$/;"	f
+uart_send_string	mini_uart.c	/^void uart_send_string(char* str)$/;"	f
+ui2a	printf.c	/^static void ui2a(unsigned int num, unsigned int base, int uc,char * bf)$/;"	f	file:
+uli2a	printf.c	/^static void uli2a(unsigned long int num, unsigned int base, int uc,char * bf)$/;"	f	file:
+vectors	entry.S	/^vectors:$/;"	l
