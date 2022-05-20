@@ -9,10 +9,18 @@
 #define SECTION_SIZE			(1 << SECTION_SHIFT)	
 
 #define LOW_MEMORY              	(2 * SECTION_SIZE)
+#define HIGH_MEMORY         PBASE
+
+#define PAGING_MEMORY       (HIGH_MEMORY - LOW_MEMORY)
+#define PAGING_PAGE         (PAGEING_MEMORY / PAGE_SIZE)
 
 #ifndef __ASSEMBLER__
 
 void memzero(unsigned long src, unsigned long n);
+
+// allocate free page
+unsigned long get_free_page();
+void free_page(unsigned long p);
 
 #endif
 
