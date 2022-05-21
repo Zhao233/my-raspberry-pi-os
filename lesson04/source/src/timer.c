@@ -32,5 +32,6 @@ void handle_generic_timer_irq( void )
 {
 	gen_timer_reset();
 
+	//printf("timer interrupt recived \n");
     timer_tick();
 }

@@ -6,9 +6,9 @@
  * 1. save prev task's context to it's stack area
  * 2. recover next task's context
  */
-.global cpu_context_switch
-cpu_context_switch:
-    mov x10, #THREAD_CPU_CONTEXT
+.global cpu_switch_to
+cpu_switch_to:
+    mov x10, #THREAD_CPU_CONTEXT_INDEX
     // x8: start address of cpu_context in prev task's task_struct
     add x8, x0, x10
     

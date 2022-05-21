@@ -4,7 +4,7 @@
  * allocation memory ‘bit map’
  * each slot present the state of a page,if 1 means this page is allocated, if 0 means this page is "free"
  * */
-static unsigned short mem_map [ PAGING_PAGES ] = {0,};
+static unsigned short mem_map [ PAGING_PAGE ] = {0,};
 
 // accelarate the process of finding the free page
 static int leftmost_free_page_index = 0;

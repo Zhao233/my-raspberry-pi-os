@@ -3,7 +3,7 @@
 #include "irq.h"
 
 // current, init_task, task_list
-static task_struct init_task = &INIT_TASK;
+static struct task_struct init_task = INIT_TASK;
 struct task_struct *current = &init_task;
 struct task_struct *task[NR_TASKS] = {&init_task, };
 
@@ -23,8 +23,6 @@ void preempt_enable(void)
  * schedule main function, select the next task that needs to run. preempt must be disbale during schedule
  * 1. iterate all task
  * */
-static void _schedule()
-{
 void _schedule(void)
 {
 	preempt_disable();
@@ -53,10 +51,10 @@ void _schedule(void)
 	switch_to(task[next]);
 	preempt_enable();
 }
-}
 
 void schedule(void)
 {
+	printf("entry schedule function \n");
     current -> counter = 0;
 
     _schedule();
@@ -101,7 +99,7 @@ void timer_tick()
         return;
     }
 
-    curren -> counter = 0;
+    current -> counter = 0;
 
     // timer interrupt can be triggered during scheudle function
     enable_irq();

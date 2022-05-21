@@ -132,5 +132,12 @@ el1_irq:
 	bl	handle_irq
 	kernel_exit 
 
+.global ret_from_fork
+ret_from_fork:
+    bl schedule_tail
+    mov x0, x20
+    // jump to pc in task_struct
+    blr x19
+
 .globl err_hang
 err_hang: b err_hang
