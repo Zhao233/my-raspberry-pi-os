@@ -12,9 +12,9 @@
  * 5. regulate global task counter
  * */
 
-int copy_process(unsigned long fn, unsigned arg)
+int copy_process(unsigned long fn, unsigned long arg)
 {
-    preemp_disable();
+    preempt_disable();
     struct task_struct *p;
     int pid;
     p = get_free_page();
@@ -22,14 +22,17 @@ int copy_process(unsigned long fn, unsigned arg)
     p -> state = TASK_RUNNING;
     p -> priority = current -> priority;
     p -> counter = p -> counter;
-    p -> preemp_counter = 1;
+    p -> preempt_counter = 1;
 
-    p -> context.x19 = fn;
-    p -> context.x20 = arg;
-    p -> pc = (unsigned long)ret_from_fork;
-    p -> sp = (unsigned long)p + THREAD_SIZE
+    p -> cpu_context.x19 = fn;
+    p -> cpu_context.x20 = arg;
+    p -> cpu_context.pc = (unsigned long)ret_from_fork;
+    p -> cpu_context.sp = (unsigned long)p + THREAD_SIZE;
     
     pid = nr_tasks++;
+
+    p -> pid = pid;
+
     task[nr_tasks] = p;
     
     preempt_enable();
