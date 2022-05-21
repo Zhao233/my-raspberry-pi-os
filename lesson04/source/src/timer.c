@@ -2,6 +2,7 @@
 #include "printf.h"
 #include "peripherals/timer.h"
 #include "timer.h"
+#include "sched.h"
 
 const unsigned int interval = 9600000;
 unsigned int curVal = 0;
@@ -29,6 +30,7 @@ void generic_timer_init ( void )
 
 void handle_generic_timer_irq( void ) 
 {
-	printf("Timer interrupt received\n\r");
 	gen_timer_reset();
+
+    timer_tick();
 }
