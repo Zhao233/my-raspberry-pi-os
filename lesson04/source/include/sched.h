@@ -31,15 +31,16 @@ struct cpu_context {
     unsigned long fp; // x29
     unsigned long sp;
     unsigned long pc; // x30 lr
-}
+};
 
 struct task_struct {
     struct cpu_context cpu_context;
     long state;
     long counter; 
     long priority;
-    long preempt_count;
-}
+    long preempt_counter;
+    long pid;
+};
 
 extern void sched_init(void);
 extern void schedule(void);
@@ -49,9 +50,12 @@ extern void preemt_enable(void);
 extern void switch_to(struct task_struct* next);
 extern void cpu_switch_to(struct task_struct* prev, struct task_struct* next);
 
+
+
 #define INIT_TASK \
-/*cpu_context*/ {{0,0,0,0,0,0,0,0,0,0,0,0,0,0},}\
-/*state*/ \0, 0, 1 0\
+/*cpu_context*/	{ {0,0,0,0,0,0,0,0,0,0,0,0,0}, \
+/* state*/	0,0,1, 0 \
 }
+
 #endif
 #endif
