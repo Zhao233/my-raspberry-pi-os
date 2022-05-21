@@ -12,7 +12,7 @@
 #define HIGH_MEMORY         PBASE
 
 #define PAGING_MEMORY       (HIGH_MEMORY - LOW_MEMORY)
-#define PAGING_PAGE         (PAGEING_MEMORY / PAGE_SIZE)
+#define PAGING_PAGE         (PAGING_MEMORY / PAGE_SIZE)
 
 #ifndef __ASSEMBLER__
 

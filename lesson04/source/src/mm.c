@@ -16,7 +16,7 @@ static int leftmost_free_page_index = 0;
  * */
 unsigned long get_free_page()
 {
-    for(int i = 0; i < PAGEING_PAGES; i++ ){
+    for(int i = 0; i < PAGING_PAGE; i++ ){
         if(mem_map[i] == 0){
             mem_map[i] = 1;
             return LOW_MEMORY + i*PAGE_SIZE;
