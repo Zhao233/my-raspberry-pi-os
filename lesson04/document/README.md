@@ -25,6 +25,10 @@
 ### 实现基础调度器，在时钟中断获得处理器控制权时，根据一定规则选择下一个运行的进程
 1. 调度算法
 2. 调度点
+### 引入linux中的链表结构，实现用链表管理能够无限量的增加task_struct
+1. 引入链表结构体（list_head）
+2. 实现通过链表节点获取对象（container_of）
+2. 实现链表的初始化（LIST_HEAD_INIT）、新增（list_add、list_add_tail）、删除方法（list_del、list_del_tail）
 
 ## 文件结构
 * include
