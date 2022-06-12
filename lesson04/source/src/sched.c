@@ -7,8 +7,10 @@ static struct task_struct init_task = INIT_TASK;
 struct task_struct *current = &init_task;
 //struct task_struct *task[NR_TASKS] = {&init_task, };
 
-LIST_HEAD(head);
-LIST_HEAD(tail);
+// tasks management
+LIST_HEAD(tasks_list);
+struct list_head *tasks_head = &tasks_list;
+struct list_head *tasks_tail = &tasks_list;
 
 int nr_tasks = 1;
 
