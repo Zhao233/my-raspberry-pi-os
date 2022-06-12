@@ -1,13 +1,20 @@
 #include "sched.h"
 #include "printf.h"
 #include "irq.h"
-
+#include "list.h"
 // current, init_task, task_list
 static struct task_struct init_task = INIT_TASK;
 struct task_struct *current = &init_task;
-struct task_struct *task[NR_TASKS] = {&init_task, };
+//struct task_struct *task[NR_TASKS] = {&init_task, };
+
+LIST_HEAD(head);
+LIST_HEAD(tail);
 
 int nr_tasks = 1;
+
+void sched_init(){
+    list_add(&init_task.head);
+}
 
 void preempt_disable(void)
 {
