@@ -1,3 +1,4 @@
+#include "list.h"
 #ifndef _SCHED_H
 
 #define THREAD_CPU_CONTEXT_INDEX    0
@@ -40,6 +41,9 @@ struct task_struct {
     long priority;
     long preempt_counter;
     long pid;
+
+    // linked list node
+    struct list_head head;
 };
 
 extern void sched_init(void);
