@@ -57,7 +57,7 @@ extern void cpu_switch_to(struct task_struct* prev, struct task_struct* next);
 
 #define INIT_TASK \
 /*cpu_context*/	{ {0,0,0,0,0,0,0,0,0,0,0,0,0}, \
-/* state*/	0,0,1, 0 \
+/* state*/	0,0,1,0 \
 }
 
 #endif
