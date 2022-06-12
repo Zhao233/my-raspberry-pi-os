@@ -21,7 +21,8 @@ void kernel_main(void)
 	uart_init();
 	init_printf(0, putc);
 	irq_vector_init();
-	generic_timer_init();
+    sched_init();
+    generic_timer_init();
 	enable_interrupt_controller();
 	enable_irq();
 
