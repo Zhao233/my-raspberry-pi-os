@@ -34,7 +34,7 @@ int copy_process(unsigned long fn, unsigned long arg)
     p -> pid = pid;
 
     //task[nr_tasks] = p;
-    list_add(tasks_tail, p -> head);
+    list_add(tasks_tail, &p -> head);
 
     preempt_enable();
 

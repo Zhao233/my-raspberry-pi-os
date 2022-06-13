@@ -15,7 +15,7 @@ struct list_head *tasks_tail = &tasks_list;
 int nr_tasks = 1;
 
 void sched_init(){
-    list_add(&init_task.head);
+    list_add(tasks_tail, &init_task.head);
 }
 
 void preempt_disable(void)
@@ -31,33 +31,60 @@ void preempt_enable(void)
 /**
  * schedule main function, select the next task that needs to run. preempt must be disbale during schedule
  * 1. iterate all task
+ * 2. the first for loop is tries to find the available task with maximum counter
+ * 3. if not found a "next" task, the second for loop is to modify the counter in each task structure in the list 
  * */
 void _schedule(void)
 {
 	preempt_disable();
-	int next,c;
-	struct task_struct * p;
+	int c;
+
+    struct list_head *_m_p_head = NULL;
+	struct task_struct * _m_p_task = NULL;
+    struct task_struct *next;
+
 	while (1) {
 		c = -1;
 		next = 0;
-		for (int i = 0; i < NR_TASKS; i++){
+		/**
+        for (int i = 0; i < NR_TASKS; i++){
 			p = task[i];
 			if (p && p->state == TASK_RUNNING && p->counter > c) {
 				c = p->counter;
 				next = i;
 			}
 		}
+        */
+        list_for_each(_m_p_head, tasks_head){
+            _m_p_task = list_entry(_m_p_head, struct task_struct, head);
+
+            if(_m_p_task && _m_p_task->state == TASK_RUNNING && _m_p_task -> counter > c){
+                c = _m_p_task -> counter;
+                next = _m_p_task;
+            }
+        }
+
 		if (c) {
 			break;
 		}
+        /**
 		for (int i = 0; i < NR_TASKS; i++) {
 			p = task[i];
 			if (p) {
 				p->counter = (p->counter >> 1) + p->priority;
 			}
 		}
+        */
+
+        list_for_each(_m_p_head, tasks_head){
+            _m_p_task = list_entry(_m_p_head, struct task_struct, head);
+
+            if(_m_p_task){
+                _m_p_task -> counter = (_m_p_task -> counter >> 1) + _m_p_task -> priority;
+            }
+        }
 	}
-	switch_to(task[next]);
+	switch_to(next);
 	preempt_enable();
 }
 
