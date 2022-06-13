@@ -1,3 +1,5 @@
+#define __ASSEMBLY_DEF
+
 #include "sched.h"
 
 /*
