@@ -36,7 +36,7 @@ static inline void __list_del(struct list_head *prev, struct list_head *next){
 }
 
 static inline void list_add(struct list_head *prev, struct list_head *new){
-    __list_add(prev, new, new -> next);
+    __list_add(prev, new, prev -> next);
 }
 
 static inline void list_del(struct list_head *head){
@@ -44,6 +44,11 @@ static inline void list_del(struct list_head *head){
 
     head -> prev = NULL;
     head -> next = NULL;
+}
+
+static inline void INIT_LIST_HEAD(struct list_head *list){
+    list -> next = list;
+    list -> prev = list;
 }
 #endif
 #endif

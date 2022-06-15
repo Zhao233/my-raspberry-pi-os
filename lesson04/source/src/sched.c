@@ -9,13 +9,13 @@ struct task_struct *current = &init_task;
 
 // tasks management
 LIST_HEAD(tasks_list);
-struct list_head *tasks_head = &tasks_list;
-struct list_head *tasks_tail = &tasks_list;
 
 int nr_tasks = 1;
 
 void sched_init(){
-    list_add(tasks_tail, &init_task.head);
+    INIT_LIST_HEAD(&init_task.head);
+
+    list_add(&tasks_list, &init_task.head);
 }
 
 void preempt_disable(void)
@@ -55,9 +55,11 @@ void _schedule(void)
 			}
 		}
         */
-        list_for_each(_m_p_head, tasks_head){
-            _m_p_task = list_entry(_m_p_head, struct task_struct, head);
 
+
+        list_for_each(_m_p_head, &tasks_list){
+            _m_p_task = list_entry(_m_p_head, struct task_struct, head);
+            
             if(_m_p_task && _m_p_task->state == TASK_RUNNING && _m_p_task -> counter > c){
                 c = _m_p_task -> counter;
                 next = _m_p_task;
@@ -76,13 +78,14 @@ void _schedule(void)
 		}
         */
 
-        list_for_each(_m_p_head, tasks_head){
+        list_for_each(_m_p_head, &tasks_list){
             _m_p_task = list_entry(_m_p_head, struct task_struct, head);
-
+            
             if(_m_p_task){
                 _m_p_task -> counter = (_m_p_task -> counter >> 1) + _m_p_task -> priority;
             }
         }
+        
 	}
 	switch_to(next);
 	preempt_enable();
@@ -90,7 +93,6 @@ void _schedule(void)
 
 void schedule(void)
 {
-	printf("entry schedule function \n");
     current -> counter = 0;
 
     _schedule();
@@ -106,19 +108,26 @@ void switch_to(struct task_struct *next)
    if(current == next){
         return ;
    } 
-
    struct task_struct *prev = current;
    
    current = next;
-   
    cpu_switch_to(prev, next);
 }
 
 void schedule_tail(void) {
-	preempt_enable();
+    preempt_enable();
 }
 
+void print_none(){
+    printf("hhhh \n");
+}
+void test_print(unsigned long reg1, unsigned long reg2){
+    printf("reg1: 0x%x, reg2: 0x%x\n", reg1, reg2);
+}
 
+void dump_task(struct task_struct *task){
+    printf("task pid: %d, fp(x29): 0x%x, sp: 0x%x, pc(x30): 0x%x \n", task -> pid, task -> cpu_context.fp, task->cpu_context.sp, task -> cpu_context.pc);
+}
 /**
  * when timer interrupt arrive, call this function.
  * 1. decrese current task's counter

@@ -18,7 +18,8 @@ void process(char *array)
 
 void kernel_main(void)
 {
-	uart_init();
+
+    uart_init();
 	init_printf(0, putc);
 	irq_vector_init();
     sched_init();
@@ -26,10 +27,9 @@ void kernel_main(void)
 	enable_interrupt_controller();
 	enable_irq();
 
-	int res = copy_process((unsigned long)&process, (unsigned long)"12345");
-
+    int res = copy_process((unsigned long)&process, (unsigned long)"12345");
 	printf("first process creared \n");
-
+    
 	if (res != 0) {
 		printf("error while starting process 1");
 		return;

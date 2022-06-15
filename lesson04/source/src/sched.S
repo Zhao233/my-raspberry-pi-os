@@ -15,7 +15,6 @@ cpu_switch_to:
     add x8, x0, x10
     
     mov x9, sp
-
     stp x19, x20, [x8], #16
     stp x21, x22, [x8], #16
     stp x23, x24, [x8], #16
@@ -33,6 +32,6 @@ cpu_switch_to:
     ldp x27, x28, [x8], #16
     ldp x29,  x9, [x8], #16
     ldr x30, [x8]
-
     mov sp, x9
+   
     ret

@@ -3,6 +3,7 @@
 #include "mm.h"
 #include "entry.h"
 
+#include "printf.h"
 /**
  * for a process: create a new process, this function must be executed with preemp disabled.
  * 1. copy current process state
@@ -18,6 +19,8 @@ int copy_process(unsigned long fn, unsigned long arg)
     struct task_struct *p;
     int pid;
     p = get_free_page();
+   
+    INIT_LIST_HEAD(&p -> head);
 
     p -> state = TASK_RUNNING;
     p -> priority = current -> priority;
@@ -27,16 +30,19 @@ int copy_process(unsigned long fn, unsigned long arg)
     p -> cpu_context.x19 = fn;
     p -> cpu_context.x20 = arg;
     p -> cpu_context.pc = (unsigned long)ret_from_fork;
+    printf("ret_from_fork: 0x%x \n", (unsigned long)ret_from_fork);
     p -> cpu_context.sp = (unsigned long)p + THREAD_SIZE;
     
-    pid = nr_tasks++;
+    pid = ++nr_tasks;
 
     p -> pid = pid;
 
     //task[nr_tasks] = p;
-    list_add(tasks_tail, &p -> head);
-
+    list_add(&tasks_list, &p -> head);
+    
     preempt_enable();
-
+    // debug
+    printf("created task, pid: %d \n", p -> pid);
+    // debug end
     return 0;
 }
