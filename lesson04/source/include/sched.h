@@ -2,6 +2,7 @@
 #ifndef _SCHED_H
 
 #define THREAD_CPU_CONTEXT_INDEX    0
+
 #ifndef __ASSEMBLER__
 #define THREAD_SIZE                 4096
 
@@ -13,8 +14,8 @@
 #define TASK_RUNNING                0
 
 extern struct task_struct           *current;
+extern struct list_head              tasks_list;
 //extern struct task_struct           *task[NR_TASKS];
-extern struct list_head *tasks_head, *tasks_tail;
 extern int    nr_tasks;
 
 struct cpu_context {
@@ -24,6 +25,8 @@ struct cpu_context {
     unsigned long x21;
     unsigned long x22;
     unsigned long x23;
+    unsigned long x24;
+    unsigned long x25;
     unsigned long x26;
     unsigned long x27;
     unsigned long x28;
@@ -57,7 +60,7 @@ extern void cpu_switch_to(struct task_struct* prev, struct task_struct* next);
 
 #define INIT_TASK \
 /*cpu_context*/	{ {0,0,0,0,0,0,0,0,0,0,0,0,0}, \
-/* state*/	0,0,1,0 \
+/*state*/	0,0,1,0,1 \
 }
 
 #endif
