@@ -6,6 +6,8 @@ ASMOPS = -Iinclude
 BUILD_DIR = build
 SRC_DIR = src
 
+DEBUG_OPS = -S -s
+
 all : kernel8.img
 
 clean :
@@ -13,10 +15,10 @@ clean :
 
 $(BUILD_DIR)/%_c.o: $(SRC_DIR)/%.c
 	mkdir -p $(@D)
-	$(ARMGNU)-gcc $(COPS) -MMD -c $< -o $@
+	$(ARMGNU)-gcc $(COPS) -MMD -c $< -o $@ -g
 
 $(BUILD_DIR)/%_s.o: $(SRC_DIR)/%.S
-	$(ARMGNU)-gcc $(ASMOPS) -MMD -c $< -o $@
+	$(ARMGNU)-gcc $(ASMOPS) -MMD -c $< -o $@ -g
 
 C_FILES = $(wildcard $(SRC_DIR)/*.c)
 ASM_FILES = $(wildcard $(SRC_DIR)/*.S)
@@ -29,3 +31,9 @@ DEP_FILES = $(OBJ_FILES:%.o=%.d)
 kernel8.img: $(SRC_DIR)/linker.ld $(OBJ_FILES)
 	$(ARMGNU)-ld -T $(SRC_DIR)/linker.ld -o $(BUILD_DIR)/kernel8.elf  $(OBJ_FILES)
 	$(ARMGNU)-objcopy $(BUILD_DIR)/kernel8.elf -O binary kernel8.img
+
+run: 
+	qemu-system-aarch64 -m 128 -M raspi3 -cpu cortex-a53 -kernel kernel8.img  -nographic -serial null -chardev stdio,id=uart1 -serial chardev:uart1 -monitor none
+
+debug: 
+	qemu-system-aarch64 -m 128 -M raspi3 -cpu cortex-a53 -kernel kernel8.img  -nographic -serial null -chardev stdio,id=uart1 -serial chardev:uart1 -monitor none $(DEBUG_OPS)
